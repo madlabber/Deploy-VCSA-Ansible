@@ -1,0 +1,356 @@
+## This is the deployment Options section of the VCSA OVF file
+## Reformatted in YAML
+DeploymentOption.value: 'tiny' # tiny,small,medium,large,management-tiny,management-small,management-medium,management-large,infrastructure
+
+## This is the Properties section of the VCSA OVF file 
+## Reformatted in YAML
+
+# Category: Networking Configuration
+####################################
+
+## Host Network IP Address Family. 
+#type="string" userConfigurable="true" value=""
+# Network IP address family (i.e., "ipv4" or "ipv6")
+guestinfo.cis.appliance.net.addr.family: ""
+
+## Host Network Mode 
+#type="string" userConfigurable="true" value=""  
+#Network mode (i.e., "static", "dhcp", or "autoconf" (IPv6 only))     
+guestinfo.cis.appliance.net.mode: ""
+
+# Host Network IP Address
+# type="string" userConfigurable="true" value=""
+# Network IP address.  Only provide this when mode is "static".  Can be IPv4 or IPv6 based on specified address family.
+guestinfo.cis.appliance.net.addr: ""
+
+## Host Network Prefix
+# type="string" userConfigurable="true" value=""
+#Network prefix length.  Only provide this when mode is 'static'.  0-32 for IPv4.  0-128 for IPv6.
+guestinfo.cis.appliance.net.prefix: ""
+
+# Host Network Default Gateway
+# IP address of default gateway.  Can be 'default' when using IPv6.
+# type="string" userConfigurable="true" value=""
+guestinfo.cis.appliance.net.gateway: ""
+
+# Host Network DNS Servers
+# Comma separated list of IP addresses of DNS servers.
+# type="string" userConfigurable="true" value=""
+guestinfo.cis.appliance.net.dns.servers: ""
+
+# Host Network Identity
+# Network identity (IP address or fully-qualified domain name) services should use when advertising themselves.
+# type="string" userConfigurable="true" value=""
+guestinfo.cis.appliance.net.pnid: ""
+     
+# Custom Network Ports
+# A string encoding a JSON object mapping port names to port numbers.
+# type="string" userConfigurable="false" value="{}"
+#guestinfo.cis.appliance.net.ports: "{}"
+
+# Category: SSO Configuration
+#############################
+
+# Directory Username    
+# For the first instance of the identity domain, this is the username with Administrator privileges. Otherwise, this is the username of the replication partner.
+# type="string" userConfigurable="false" value="administrator@vsphere.local"
+#guestinfo.cis.vmdir.username: "administrator@vsphere.local"
+
+# Directory Password
+# For the first instance of the identity domain, this is the password given to the Administrator account.  Otherwise, this is the password of the Administrator account of the replication partner.
+# password="true" type="string" userConfigurable="true"
+guestinfo.cis.vmdir.password: ""
+
+# Directory Domain Name 
+# For the first instance of the identity domain, this is the name of the newly created domain.
+# type="string" userConfigurable="false" value="vsphere.local"
+#guestinfo.cis.vmdir.domain-name: "vsphere.local"
+
+# Site Name
+# Name of site.  Use 'Default-First-Site' to define a new site.
+# type="string" userConfigurable="false" value="Default-First-Site"
+#guestinfo.cis.vmdir.site-name: "Default-First-Site"
+  
+# New Identity Domain  
+# If this parameter is set to True, the VMware directory instance is setup as the first instance of a new identity domain. Otherwise, the instance is setup as a replication partner.
+# type="boolean: userConfigurable="false" value="True"
+#guestinfo.cis.vmdir.first-instance: "True"
+  
+# Directory Replication Partner  
+# The hostname of the VMware directory replication partner.  This value is ignored for the first instance of the identity domain.
+# type="string" userConfigurable="false" value=""
+#guestinfo.cis.vmdir.replication-partner-hostname: ""
+   
+# Category: Database Configuration
+# Database Type
+# String indicating whether the database is 'embedded' or 'external'.
+# type="string" userConfigurable="false" value="embedded"
+#guestinfo.cis.db.type: "embedded"
+
+# Database User
+# String naming the account to use when connecting to external database (ignored when db.type is 'embedded').
+# type="string" userConfigurable="false" value=""
+#guestinfo.cis.db.user: ""
+
+# Database Password
+# String providing the password to use when connecting to external database (ignored when db.type is 'embedded').
+# password="true" type="string" userConfigurable="false" value=""
+#guestinfo.cis.db.password: ""
+
+# Database Server 
+# String naming the the hostname of the server on which the external database is running (ignored when db.type is 'embedded').
+# type="string" userConfigurable="false" value=""
+#guestinfo.cis.db.servername: ""
+
+# Database Port  
+# String describing the port on the host on which the external database is running (ignored when db.type is 'embedded').
+# type="string" userConfigurable="false" value=""
+#guestinfo.cis.db.serverport: ""
+
+# Database Provider 
+# String describing the external database provider. The only supported value is 'oracle' (ignored when the db.type is 'embedded').
+# type="string" userConfigurable="false" value=""
+#guestinfo.cis.db.provider: ""
+  
+# Database Instance
+# String describing the external database instance. Values could be anything depending on what the database instance name the DBA creates in the external db. (ignored when the db.type is 'embedded').
+# type="string" userConfigurable="false" value=""
+#guestinfo.cis.db.instance: ""
+
+# Category: System Configuration
+
+# Root Password
+# Password to assign to root account.  If blank, password can be set on the console.
+# password="true" type="string" userConfigurable="true"
+guestinfo.cis.appliance.root.passwd: ""
+
+# Root Shell 
+# This property is not changeable.
+# type="string" userConfigurable="false" value=""
+#guestinfo.cis.appliance.root.shell: 
+  
+
+# SSH Enabled
+# Set whether SSH-based remote login is enabled.  This configuration can be changed after deployment.
+# type="boolean: userConfigurable="false" value="False"
+#guestinfo.cis.appliance.ssh.enabled: "False"
+
+# Tools-based Time Synchronization Enabled
+# Set whether VMware tools based time synchronization should be used. This parameter is ignored if appliance.ntp.servers is not empty.
+# type="boolean: userConfigurable="false" value="False"
+#guestinfo.cis.appliance.time.tools-sync: "False"
+
+# NTP Servers 
+# A comma-seperated list of hostnames or IP addresses of NTP Servers 
+# type="string" userConfigurable="false" value=""
+#guestinfo.cis.appliance.ntp.servers: ""
+
+# Deployment Type     
+# type="string" userConfigurable="false" value="embedded"
+# Type of appliance to deploy (i.e. 'embedded', 'infrastructure' or 'management').
+#guestinfo.cis.deployment.node.type: "embedded"
+# if configuration="management-xlarge: value="management"
+# if configuration="management-large: value="management"
+# if configuration="management-medium: value="management"
+# if configuration="management-small: value="management"
+# if configuration="management-tiny: value="management"
+# if configuration="management-xlarge-lstorage: value="management"
+# if configuration="management-large-lstorage: value="management"
+# if configuration="management-medium-lstorage: value="management"
+# if configuration="management-small-lstorage: value="management"
+# if configuration="management-tiny-lstorage: value="management"
+# if configuration="management-xlarge-xlstorage: value="management"
+# if configuration="management-large-xlstorage: value="management"
+# if configuration="management-medium-xlstorage: value="management"
+# if configuration="management-small-xlstorage: value="management"
+# if configuration="management-tiny-xlstorage: value="management"
+# if configuration="infrastructure: value="infrastructure"
+
+# Platform Services Controller 
+# When deploying a vCenter Server Node, please provide the FQDN or IP address of a Platform Services Controller (leave blank otherwise).  The choice of FQDN versus IP address is decided based on the Platform Services Controller's own notion of its network identity.
+# type="string" userConfigurable="false" value=""
+#guestinfo.cis.system.vm0.hostname: ""
+
+# HTTPS Port on Platform Services Controller
+# When deploying a vCenter Server pointing to an external platform services controller, please provide the HTTPS port of the external platform services controller if a custom port number is being used. The default HTTPS port number is 443.
+# type="string" userConfigurable="false" value="443"
+#guestinfo.cis.system.vm0.port: "443"
+  
+# Category: Upgrade Configuration
+#################################
+
+# Upgrade Source Hostname
+# IP/hostname of the appliance to upgrade. Set only for upgrade.
+# type="string" userConfigurable="false" value=""
+#guestinfo.cis.upgrade.source.vpxd.ip: ""
+  
+# Migration Assistant Port  
+# Port used by Migration Assistant on source vCenter Server.
+# type="string" userConfigurable="false" value="9123"
+#guestinfo.cis.upgrade.source.ma.port: "9123"
+
+# Upgrade Source vCenter Username
+# vCenter username for the appliance to upgrade. Set only for upgrade.
+# type="string" userConfigurable="false" value=""
+#guestinfo.cis.upgrade.source.vpxd.user: ""
+
+# Upgrade Source vCenter Password  
+# vCenter password for the appliance to upgrade. Set only for upgrade.
+# password="true" type="string" userConfigurable="false" value=""
+#guestinfo.cis.upgrade.source.vpxd.password: ""
+  
+# Upgrade Source OS Username 
+# Username for the appliance operating system to upgrade.  Usually root. Set only for upgrade.
+# type="string" userConfigurable="false" value=""
+#guestinfo.cis.upgrade.source.guest.user: ""
+  
+# Upgrade Source OS Password  
+# Password for the appliance operating system to upgrade. Set only for upgrade.
+# password="true" type="string" userConfigurable="false" value=""
+#guestinfo.cis.upgrade.source.guest.password: ""
+  
+# Upgrade Management Host Hostname  
+# URL that consists of the IP address or FQDN and https port of the vCenter Server instance or ESXi host that manages the appliance to upgrade. Https port is an optional parameter which by default is 443. Example: 10.10.10.10, //10.10.10.10:444, //[2001:db8:a0b:12f0::1]:444. Set only for upgrade.
+# type="string" userConfigurable="false" value=""
+#guestinfo.cis.upgrade.source.guestops.host.addr: ""
+  
+# Upgrade Management Host Username  
+# Username for the host that manages appliance to upgrade.  Can be  either vCenter or ESX host.  Set only for upgrade.
+# type="string" userConfigurable="false" value=""
+#guestinfo.cis.upgrade.source.guestops.host.user: ""
+  
+# Upgrade Management Host Password  
+# Password for the host that manages appliance to upgrade.  Can be  either vCenter or ESX host.  Set only for upgrade.
+# password="true" type="string" userConfigurable="false" value=""
+#guestinfo.cis.upgrade.source.guestops.host.password: ""
+  
+# Upgrade Management Host Thumbprint
+# Thumbprint for the SSL certificate of the host that manages the appliance to upgrade. Set only for upgrade.
+# type="string" userConfigurable="false" value=""
+#guestinfo.cis.upgrade.source.ssl.thumbprint: ""
+  
+# Upgrade Source Platform 
+# Source host platform. Optional. Set only for upgrade 
+# type="string" userConfigurable="false" value="linux"
+#guestinfo.cis.upgrade.source.platform: "linux"
+
+# Upgrade Source Export Folder
+# Folder on the source appliance, where to store migrate data. Optional. Set only for upgrade
+# type="string" userConfigurable="false" value="/var/tmp"
+#guestinfo.cis.upgrade.source.export.directory: "/var/tmp"
+
+# Upgrade Destination Export Folder
+# Folder where exported source data will be stored in the appliance. Optional. Set only for upgrade
+# type="string" userConfigurable="false" value="/storage/seat/cis-export-folder"
+#guestinfo.cis.upgrade.import.directory: "/storage/seat/cis-export-folder" 
+
+# Upgrade Advanced Options
+# Advanced upgrade settings specified in json format. Optional. Set only for upgrade
+# type="string" userConfigurable="false" value=""
+#guestinfo.cis.upgrade.user.options: ""
+
+# Active Directory domain name
+# Active Directory domain to join.
+# type="string" userConfigurable="false" value=""
+#guestinfo.cis.ad.domain-name: ""
+
+# Active Directory domain admin user
+# Active Directory domain admin user. This username will be used to join the machine to the domain.
+# type="string" userConfigurable="false" value=""
+#guestinfo.cis.ad.domain.username: ""
+
+# Active Directory domain admin user password
+# Active Directory domain admin user password. This password will be used to join the machine to the domain.
+# password="true" type="string" userConfigurable="false" value=""
+#guestinfo.cis.ad.domain.password: ""
+
+# vCenter Server managing target appliance
+# FQDN or IP address of the vCenter Server managing that target appliance. Used when upgrading a source appliance in VCHA cluster.
+# type="string" userConfigurable="true" value=""
+#guestinfo.cis.vpxd.ha.management.addr: ""
+  
+# Port of the vCenter Server managing target appliance
+# Https port of the vCenter Server managing that target appliance. Used when upgrading a source appliance in VCHA cluster. If not specified, port 443 will be used by default.
+# type="string" userConfigurable="true" value="443"
+#guestinfo.cis.vpxd.ha.management.port: "443"
+
+# Username for the vCenter Server managing target appliance
+# User able to authenticate in vCenter Server managing that target appliance. The user must have the privilege Global.VCServer. Used when upgrading a source appliance in VCHA cluster.
+# type="string" userConfigurable="true" value=""
+#guestinfo.cis.vpxd.ha.management.user: ""
+
+# Password for the vCenter Server managing target appliance
+# Password for administrator user authenticating to the vCenter Server managing target appliance. Used when upgrading a source appliance in VCHA cluster.
+# password="true" type="string" userConfigurable="true" value=""
+#guestinfo.cis.vpxd.ha.management.password: ""
+  
+# Thumbprint for the SSL certificate of the vCenter Server managing target appliance  
+# Thumbprint for the SSL certificate of the host that manages the appliance to upgrade. Used when upgrading a source appliance in VCHA cluster.
+# type="string" userConfigurable="true" value=""
+#guestinfo.cis.vpxd.ha.management.thumbprint: ""
+  
+# Path to the compute resource where target appliance will be deployed on management vCenter Server
+# Path to host/cluster/resource pool where target appliance will be deployed on management vCenter Server. Used when upgrading a source appliance in VCHA cluster. Example: /my_datacenter/my_folder/my_host_or_cluster/my_resource_pool
+# type="string" userConfigurable="true" value=""
+#guestinfo.cis.vpxd.ha.placement: ""
+
+# Category: Miscellaneous
+#########################
+
+# ESXi Dump Collector Enabled
+# Set whether ESXi Dump Collector service is enabled.  This configuration can be changed after deployment.
+# type="boolean: userConfigurable="false" value="True"
+#guestinfo.cis.netdump.enabled: "True"
+  
+# Do Silent Install
+# If this parameter is set to True, no questions will be posted during install or upgrade. Otherwise, the install process will wait for a reply if there is a pending question.
+# type="boolean: userConfigurable="false" value="False"
+#guestinfo.cis.silentinstall: "False"
+
+# The Client Locale
+# This parameter specifies the client locale. Supported locales are en, fr, ja, ko, zh_CN and zh_TW. English is assumed if locale is unknown.
+# type="string" userConfigurable="false" value="en"
+#guestinfo.cis.clientlocale: "en"
+ 
+# Feature switch states
+# Specify feature switch states which need to be added or modified in feature switch state config file. Format: key1=value1, key2=value2
+# type="string" userConfigurable="false" value=""
+#guestinfo.cis.feature.states: 
+
+# CEIP enabled
+# VMware’s Customer Experience Improvement Program ("CEIP") provides VMware with information that enables VMware to improve its products and services, to fix problems, and to advise you on how best to deploy and use our products. As part of the CEIP, VMware collects technical information about your organization’s use of VMware products and services on a regular basis in association with your organization’s VMware license key(s). This information does not personally identify any individual. For more details about the Program and how VMware uses the information it collects through CEIP, please see the product documentation at http://www.vmware.com/info?id=1399. If you want to participate in VMware’s CEIP for this product, set this property to True. You may join or leave VMware’s CEIP for this product at any time.
+# type="boolean: userConfigurable="true" value="False"
+guestinfo.cis.ceip_enabled: "False"
+
+# Auto Start Services
+# If this parameter is set to True, the appliance will be configured after deployment using the specified OVF configuration parameters. If set to False, the appliance should be configured post-deployment using the VMware Appliance Management Interface.
+# type="boolean: userConfigurable="false" value="False"
+#guestinfo.cis.deployment.autoconfig: "False"
+
+# MAC address allocation scheme prefix
+# If a valid MAC address prefix is provided, then all MAC addresses assigned by vCenter Server will begin with this prefix instead of the VMware OUI. This property cannot co-exist with mac-allocation-scheme.ranges
+# type="string" userConfigurable="false" value=""
+#guestinfo.cis.vpxd.mac-allocation-scheme.prefix: ""
+
+# MAC address allocation scheme prefix length
+# This property is mandatory whenever a custom MAC prefix is provided.
+# type="uint8: userConfigurable="false" value="0"
+#guestinfo.cis.vpxd.mac-allocation-scheme.prefix-length: 0
+
+# MAC address allocation scheme ranges
+# If valid MAC address range is provided, then vCenter Server will assign MAC addresses from this range instead of allocating VMware OUI based MAC address. The address range must be provided in the format &quot;BeginAddress1-EndAddress1,...,BeginAddressN-EndAddressN&quot;. This property cannot co-exist with mac-allocation-scheme.prefix.
+# type="string" userConfigurable="false" value=""
+#guestinfo.cis.vpxd.mac-allocation-scheme.ranges: ""
+ 
+# Category: Networking Properties
+#######################
+
+# Domain Name
+# The domain name of this VM. Leave blank if DHCP is desired.
+# type="string" userConfigurable="true"
+domain: ""
+
+# Domain Search Path
+# The domain search path (comma or space separated domain names) for this VM. Leave blank if DHCP is desired.
+# type="string" userConfigurable="true"
+searchpath: ""
