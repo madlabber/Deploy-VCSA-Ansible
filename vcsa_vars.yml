@@ -1,0 +1,13 @@
+esxi_address: '172.16.108.20'
+esxi_username: 'root'
+esxi_password: 'VMware1!'
+vcenter_password: 'VMware1!'
+vcenter_hostname: 'vcsa'
+vcenter_address: '172.16.108.22'
+net_prefix: '24'
+net_gateway: '172.16.108.2'
+dns_servers: '172.16.108.21'
+domain: 'demo.lab'
+searchpath: ""
+vcsa_size: 'tiny'
+vcsa_ova_file: '/Users/madlabber/Downloads/VMware-vCenter-Server-Appliance-6.7.0.20000-10244745_OVF10.ova'
