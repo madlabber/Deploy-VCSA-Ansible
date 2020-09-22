@@ -31,7 +31,7 @@
         searchpath: '{{ searchpath }}'
     delegate_to: localhost
   - name: Wait for vCenter
-    vmware_about_facts:
+    vmware_about_info:
       hostname: '{{ vcenter_address }}'
       username: 'administrator@vsphere.local'
       password: '{{ vcenter_password }}'
